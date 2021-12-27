@@ -1,24 +1,28 @@
 #include <fstream>
 #include <iostream>
-#include <tuple>
+#include <sstream>
 #include <vector>
 
 using namespace std;
 
 vector<string> getInput();
-tuple<string, int> parse(string);
+vector<int> parse(string);
 
 int main(int argc, char const *argv[]) {
     vector<string> input = getInput();
     int n = input.size();
 
-    string dir[n];
-    int val[n];
+    vector<vector<int>> dim(n);
+    for (int i = 0; i < n; i++)
+        dim[i] = parse(input.at(i));
+
+    int totalLength = 0;
     for (int i = 0; i < n; i++) {
-        tie(dir[i], val[i]) = parse(input.at(i));
+        int len = 2 * (dim[i][0] + dim[i][1] + dim[i][2] - max(max(dim[i][0], dim[i][1]), dim[i][2]));
+        totalLength += len + dim[i][0] * dim[i][1] * dim[i][2];
     }
 
-    cout << " " << endl;
+    cout << totalLength << endl;
     return 0;
 }
 
@@ -42,16 +46,14 @@ vector<string> getInput() {
 }
 
 // parses one line of input
-tuple<string, int> parse(string s) {
-    string dir, val;
+vector<int> parse(string s) {
+    vector<int> packet(3);
 
-    int start = 0;
-    int end = s.find(" ");
-    dir = s.substr(start, end - start);
-
-    start = end + 1;
-    end = s.size();
-    val = s.substr(start, end - start);
-
-    return make_tuple(dir, stoi(val));
+    stringstream ss(s);
+    string length;
+    for (int i = 0; i < 3; i++) {
+        getline(ss, length, 'x');
+        packet[i] = stoi(length);
+    }
+    return packet;
 }
