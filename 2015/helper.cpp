@@ -22,7 +22,7 @@ int main(int argc, char const *argv[]) {
 
     // Delete & create files
     ofstream g;
-    // g.open("25-2.cpp");
+    g.open("06-2.cpp");
 
     // for (int i = 1; i <= 25; i++) {
     //     string n = (i < 10) ? "0" + to_string(i) : to_string(i);
