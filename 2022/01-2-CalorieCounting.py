@@ -1,5 +1,4 @@
 import os
-import numpy as np
 
 
 def get_input():
