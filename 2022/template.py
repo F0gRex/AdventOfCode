@@ -8,7 +8,9 @@ def get_input():
 
     with open(inputfile, "r") as f:
         for line in f.readlines():
-            data.append(int(line))
+            if line == "\n":
+                continue
+            data.append(line.strip("\n"))
     return data
 
 
