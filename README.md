@@ -12,7 +12,7 @@ Nevertheless, I added some comments in order to make it easier to understand wha
 <b>2019</b>: 0/50 stars (TBD) <br>
 <b>2020</b>: 50/50 stars (Java) <br>
 <b>2021</b>: 50/50 stars (C++) <br>
-<b>2022</b>: 2/50 stars (Python) <br>
+<b>2022</b>: 50/50 stars (Python) <br>
 
 
 
